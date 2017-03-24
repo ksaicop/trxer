@@ -40,7 +40,12 @@
     
     public string ToExactTimeDefinition(string duration)
     {
-         return  ToExtactTime(TimeSpan.Parse(duration).TotalMilliseconds);
+        if (string.IsNullOrEmpty(duration))
+        {
+            return string.Empty;
+        }
+
+        return ToExtactTime(TimeSpan.Parse(duration).TotalMilliseconds);
     }
     
     public string ToExactTimeDefinition(string start,string finish)
